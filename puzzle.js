@@ -21,4 +21,3 @@ const dataTable = {
 	"O" : ["K", "N", "P"],
 	"P" : ["L", "O"]
 }
-
