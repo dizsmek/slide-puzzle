@@ -22,6 +22,7 @@ const dataTable = {
 	"P" : ["L", "O"]
 }
 
-function slide() {
-	
+function slide(event) {
+	event = event || window.event;
+	console.log(event.target.id);
 }
