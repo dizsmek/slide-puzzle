@@ -24,5 +24,5 @@ const dataTable = {
 
 function slide(event) {
 	event = event || window.event;
-	console.log(event.target.id);
+	console.log(event.target.id); //event.target is not working in Firefox
 }
