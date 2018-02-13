@@ -22,7 +22,28 @@ const dataTable = {
 	"P" : ["L", "O"]
 }
 
-function slide(event) {
-	event = event || window.event;
-	console.log(event.target.id); //event.target is not working in Firefox
-}
+// let images = document.getElementsByTagName('IMG');
+// let black = function () {
+// 	for (let index = 0; index < images.length; index++) {
+// 		if(images[index].src.endsWith("black.jpeg")) {
+// 			return images[index].id;
+// 		}
+// 	}
+// };
+//
+// console.log(black());
+//
+// function slide(event) {
+// 	event = event || window.event;
+// console.log(event.target.id); //event.target is not working in Firefox
+//
+// 	for (let key in dataTable) {
+// 		if (event.target.id === key) {
+// 			for(let i = 0; i < dataTable[key].length; i++) {
+// 				if(dataTable[key][i] === black()) {
+// 					console.log('test');
+// 				}
+// 			}
+// 		}
+// 	}
+// }
