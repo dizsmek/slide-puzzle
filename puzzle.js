@@ -47,3 +47,10 @@ const dataTable = {
 // 		}
 // 	}
 // }
+
+function slide(clickedImage) {
+	console.log(clickedImage);
+	dataTable[clickedImage.id].forEach(function(id) {
+  	console.log(id);
+	});
+}
