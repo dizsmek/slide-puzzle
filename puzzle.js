@@ -56,3 +56,9 @@ console.log(document.getElementById(id).src);
 console.log(`id: ${id} \nsrc: ${completedPuzzle[id]}`);
 	}
 }
+
+document.getElementById("reset").addEventListener('click', reset);
+
+function reset() {
+	location.reload(); //This works, but it is bad practice.
+}
