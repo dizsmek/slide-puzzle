@@ -8,7 +8,7 @@ const dataTable = {
 	"B" : ["A", "C", "F"],
 	"C" : ["B", "D", "G"],
 	"D" : ["C", "H"],
-	"E" : ["F", "I"],
+	"E" : ["F", "I", "A"],
 	"F" : ["B", "E", "G", "J"],
 	"G" : ["C", "F", "H", "K"],
 	"H" : ["D", "G", "L"],
@@ -21,6 +21,27 @@ const dataTable = {
 	"O" : ["K", "N", "P"],
 	"P" : ["L", "O"]
 }
+
+const completedPuzzle = {
+	"A" : "1",
+	"B" : "2",
+	"C" : "3",
+	"D" : "black",
+	"E" : "5",
+	"F" : "6",
+	"G" : "7",
+	"H" : "8",
+	"I" : "9",
+	"J" : "10",
+	"K" : "11",
+	"L" : "12",
+	"M" : "13",
+	"N" : "14",
+	"O" : "15",
+	"P" : "16"
+}
+
+console.log(completedPuzzle);
 
 function slide(clickedImage) {
 console.log(clickedImage);
