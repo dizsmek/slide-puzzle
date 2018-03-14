@@ -52,4 +52,7 @@ console.log(document.getElementById(id).src);
 			clickedImage.src = "images/black.jpg";
 		}
 	});
+	for(let id in completedPuzzle) {
+console.log(`id: ${id} \nsrc: ${completedPuzzle[id]}`);
+	}
 }
