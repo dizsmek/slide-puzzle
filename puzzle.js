@@ -52,13 +52,16 @@ console.log(document.getElementById(id).src);
 			clickedImage.src = "images/black.jpg";
 		}
 	});
-	for(let id in completedPuzzle) {
-console.log(`id: ${id} \nsrc: ${completedPuzzle[id]}`);
-	}
+// 	for(let id in completedPuzzle) {
+// console.log(`id: ${id} \nsrc: ${completedPuzzle[id]}`);
+// 	}
 }
 
 document.getElementById("reset").addEventListener('click', reset);
 
 function reset() {
-	location.reload(); //This works, but it is bad practice.
+	//location.reload(); //This works, but it is bad practice.
+	for(let id in completedPuzzle) {
+		document.getElementById(id).src = completedPuzzle[id];
+	}
 }
