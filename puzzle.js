@@ -41,27 +41,23 @@ const completedPuzzle = {
 	"P" : "16"
 }
 
-console.log(completedPuzzle);
-
+//The game
 function slide(clickedImage) {
-console.log(clickedImage);
 	dataTable[clickedImage.id].forEach(function(id) {
-console.log(document.getElementById(id).src);
-  	if(document.getElementById(id).src.endsWith("black.jpg")) {
+console.log(document.getElementById(id).src); //That's why the .endsWith() is used in the next line
+  	if(document.getElementById(id).src.endsWith("black.jpeg")) {
 			document.getElementById(id).src = clickedImage.src;
-			clickedImage.src = "images/black.jpg";
+			clickedImage.src = "images/black.jpeg";
 		}
 	});
-// 	for(let id in completedPuzzle) {
-// console.log(`id: ${id} \nsrc: ${completedPuzzle[id]}`);
-// 	}
 }
 
+//Reset button
 document.getElementById("reset").addEventListener('click', reset);
 
 function reset() {
 	//location.reload(); //This works, but it is bad practice.
 	for(let id in completedPuzzle) {
-		document.getElementById(id).src = completedPuzzle[id];
+		document.getElementById(id).src = "images/" + completedPuzzle[id] + ".jpeg";
 	}
 }
