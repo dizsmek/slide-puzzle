@@ -50,6 +50,12 @@ console.log(document.getElementById(id).src); //That's why the .endsWith() is us
 			clickedImage.src = "images/black.jpeg";
 		}
 	});
+	//Check if the puzzle is completed
+	for (let id in completedPuzzle) {
+		if (document.getElementById(id).src.endsWith(completedPuzzle[id] + ".jpeg")) {
+			alert("You won.");
+		}
+	}
 }
 
 //Reset button
