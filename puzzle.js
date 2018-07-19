@@ -1,7 +1,11 @@
-/* A B C D
-   E F G H
-   I J K L
-   M N O P */
+
+/*
+---DATATABLE VISUALIZATION---
+		   A B C D
+		   E F G H
+		   I J K L
+		   M N O P 
+*/
 
 const dataTable = {
 	"A" : ["B", "E"],
@@ -41,29 +45,54 @@ const completedPuzzle = {
 	"P" : "16"
 }
 
+
+
 //The game
 function slide(clickedImage) {
 	dataTable[clickedImage.id].forEach(function(id) {
-console.log(document.getElementById(id).src); //That's why the .endsWith() is used in the next line
-  	if(document.getElementById(id).src.endsWith("black.jpeg")) {
+	  	if(document.getElementById(id).src.endsWith("black.jpeg")) {
 			document.getElementById(id).src = clickedImage.src;
 			clickedImage.src = "images/black.jpeg";
 		}
 	});
-	//Check if the puzzle is completed
-	for (let id in completedPuzzle) {
-		if (document.getElementById(id).src.endsWith(completedPuzzle[id] + ".jpeg")) {
-			alert("You won.");
-		}
-	}
 }
 
-//Reset button
-document.getElementById("reset").addEventListener('click', reset);
 
-function reset() {
+
+//Reset button
+let reset = () => {
 	//location.reload(); //This works, but it is bad practice.
 	for(let id in completedPuzzle) {
 		document.getElementById(id).src = "images/" + completedPuzzle[id] + ".jpeg";
 	}
 }
+document.getElementById("reset").addEventListener('click', reset);
+
+
+
+// Shuffle button
+let shuffle = () => {
+	let images = document.getElementsByClassName("image");
+	for(let i=0; i<images.length; i++) {
+		if(images[i].src.endsWith("black.jpeg")) {
+			let black = images[i],
+				neighbors = dataTable[black.id],
+				randomNum = Math.floor(Math.random()*neighbors.length),
+				theChosenOne = neighbors[randomNum];
+
+			black.src = theChosenOne.src;
+			theChosenOne.src = "images/black.jpeg";
+
+			//TEST
+			console.log(`
+				black: ${black}
+				black.src: ${black.src}
+				theChosenOne: ${theChosenOne}
+				C.src: ${C.src}
+				H.src: ${H.src}
+				theChosenOne.src: ${theChosenOne.src}
+			`);
+		}
+	}
+}
+document.getElementById("shuffle").addEventListener('click', shuffle);
