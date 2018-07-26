@@ -68,10 +68,9 @@ let reset = () => {
 }
 document.getElementById("reset").addEventListener('click', reset);
 
-
-
 // Shuffle button
 let shuffle = () => {
+
 	let images = document.getElementsByClassName("image");
 	for(let i=0; i<images.length; i++) {
 		if(images[i].src.endsWith("black.jpeg")) {
@@ -80,18 +79,13 @@ let shuffle = () => {
 				randomNum = Math.floor(Math.random()*neighbors.length),
 				theChosenOne = neighbors[randomNum];
 
-			black.src = theChosenOne.src;
-			theChosenOne.src = "images/black.jpeg";
+			black.src = document.getElementById(theChosenOne).src;
+			document.getElementById(theChosenOne).src = "images/black.jpeg";
 
-			//TEST
-			console.log(`
-				black: ${black}
-				black.src: ${black.src}
-				theChosenOne: ${theChosenOne}
-				C.src: ${C.src}
-				H.src: ${H.src}
-				theChosenOne.src: ${theChosenOne.src}
-			`);
+			//TEST - reusable
+			// console.log(`
+			// 	black.src: ${black.src}
+			// `);
 		}
 	}
 }
