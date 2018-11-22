@@ -4,7 +4,7 @@
 		   A B C D
 		   E F G H
 		   I J K L
-		   M N O P 
+		   M N O P
 */
 
 const dataTable = {
@@ -49,8 +49,9 @@ const completedPuzzle = {
 
 //The game
 function slide(clickedImage) {
+console.dir(clickedImage);
 	dataTable[clickedImage.id].forEach(function(id) {
-	  	if(document.getElementById(id).src.endsWith("black.jpeg")) {
+	  if(document.getElementById(id).src.endsWith("black.jpeg")) {
 			document.getElementById(id).src = clickedImage.src;
 			clickedImage.src = "images/black.jpeg";
 		}
