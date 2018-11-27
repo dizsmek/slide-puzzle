@@ -49,7 +49,9 @@ const completedPuzzle = {
 
 //The game
 function slide(clickedImage) {
+
 console.dir(clickedImage);
+
 	dataTable[clickedImage.id].forEach(function(id) {
 	  if(document.getElementById(id).src.endsWith("black.jpeg")) {
 			document.getElementById(id).src = clickedImage.src;
@@ -61,7 +63,7 @@ console.dir(clickedImage);
 
 
 //Reset button
-let reset = () => {
+const reset = () => {
 	//location.reload(); //This works, but it is bad practice.
 	for(let id in completedPuzzle) {
 		document.getElementById(id).src = "images/" + completedPuzzle[id] + ".jpeg";
@@ -70,23 +72,24 @@ let reset = () => {
 document.getElementById("reset").addEventListener('click', reset);
 
 // Shuffle button
-let shuffle = () => {
+const shuffle = () => {
+	for(let step = 0; step <= 100; step++){
+		randomSwitch();
+	}
+}
 
+const randomSwitch = () => {
 	let images = document.getElementsByClassName("image");
-	for(let i=0; i<images.length; i++) {
+	for(let i = 0; i<images.length; i++) {
 		if(images[i].src.endsWith("black.jpeg")) {
 			let black = images[i],
-				neighbors = dataTable[black.id],
-				randomNum = Math.floor(Math.random()*neighbors.length),
-				theChosenOne = neighbors[randomNum];
+					neighbors = dataTable[black.id],
+					randomNum = Math.floor(Math.random()*neighbors.length),
+					theChosenOne = neighbors[randomNum];
 
 			black.src = document.getElementById(theChosenOne).src;
 			document.getElementById(theChosenOne).src = "images/black.jpeg";
-
-			//TEST - reusable
-			// console.log(`
-			// 	black.src: ${black.src}
-			// `);
+			break;
 		}
 	}
 }
